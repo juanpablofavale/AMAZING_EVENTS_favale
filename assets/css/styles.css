@@ -46,23 +46,16 @@ header .active{
 footer{
     font-size: 25px;
     padding: 10px;
+    background: linear-gradient(#ff000077, #ff00ff10, #ff000077);
 }
 
 footer ul{
     list-style: none;
 }
 
-footer li{
-
-}
-
 footer a{
     text-decoration: none;
     color: black;
-}
-
-footer p{
-
 }
 
 a .bi-instagram:hover{

@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/*  HEADER  */
+
 .logo {
     padding-top: 20px;
     width: 250px;
@@ -33,4 +35,44 @@ header .carousel img{
 header .active{
     color: #d90368;
     font-weight: bolder;
+}
+
+/*  MAIN  */
+
+
+
+/*  FOOTER  */
+
+footer{
+    font-size: 25px;
+    padding: 10px;
+}
+
+footer ul{
+    list-style: none;
+}
+
+footer li{
+
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+footer p{
+
+}
+
+a .bi-instagram:hover{
+    color: #d90368;
+}
+
+a .bi-facebook:hover{
+    color: blue;
+}
+
+a .bi-whatsapp:hover{
+    color: yellowgreen;
 }

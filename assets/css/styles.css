@@ -1,5 +1,36 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.logo {
+    padding-top: 20px;
+    width: 250px;
+}
+
+header ul {
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+}
+
+header li {
+    text-align: center;
+    padding: 5px;
+}
+
+header a {
+    text-decoration: none;
+    color: #000000;
+}
+
+header .carousel img{
+    height: 200px;
+    object-fit: cover;
+}
+
+header .active{
+    color: #d90368;
+    font-weight: bolder;
 }

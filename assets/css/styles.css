@@ -136,7 +136,7 @@ main table td, main table tr{
 footer{
     font-size: 25px;
     padding: 10px;
-    background: linear-gradient(#d90368, #ff00ff10, #d90368);
+    background: linear-gradient(#d90368aa, #ff00ff10, #d90368aa);
 }
 
 footer ul{

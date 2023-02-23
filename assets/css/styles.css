@@ -74,7 +74,7 @@ main form{
     width: 270px;
     margin: 20px 0;
     box-shadow: inset 0 0 10px #d90368;
-    border: 1px solid #d903678f;
+    border: 1px solid #d9036780;
     border-radius: 5px;
 }
 
@@ -178,7 +178,9 @@ a .bi-whatsapp:hover{
         justify-content: space-between;
     }
     main .filtros{
-        border: 1px solid grey;
+        border: 1px solid rgba(128, 128, 128, 0.466);
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px grey;
     }
     main .container .cards{
         flex-direction: row !important;

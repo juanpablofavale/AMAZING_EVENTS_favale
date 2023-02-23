@@ -37,6 +37,12 @@ header .active{
     font-weight: bolder;
 }
 
+header .carousel-control-prev-icon, header .carousel-control-next-icon{
+    background-color: #d90368;
+    padding: 25px;
+    border-radius: 50%;
+}
+
 /*  MAIN  */
 
 h1{
@@ -74,6 +80,14 @@ main form{
 
 main form input{
     display: block;
+    width: 100%;
+}
+
+main form textarea.message{
+    height: 100px;
+}
+
+main form label{
     width: 100%;
 }
 
@@ -146,6 +160,9 @@ a .bi-whatsapp:hover{
         display: flex;
         flex-direction: column;
     }
+    main table{
+        width: 80%;
+    }
 }
 
 @media screen and (min-width: 600px){
@@ -179,10 +196,30 @@ a .bi-whatsapp:hover{
         flex-wrap: wrap;
         gap: 20px;
     }
+    footer{
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+    #details .container{
+        padding: 0 !important;
+        flex-direction: row !important;
+        width: 70%;
+    }
+    #details figure{
+        padding: 20px;
+        margin-bottom: 0;
+    }
+    #details .descripcion{
+        border: none;
+        border-left: 2px solid white;
+    }
 }
 
 @media screen and (min-width: 920px){
     header .carousel img{
         object-fit: contain;
+    }
+    main table{
+        width: 600px;
     }
 }

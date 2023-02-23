@@ -26,9 +26,13 @@ header li {
     padding: 5px;
 }
 
-header a {
+header a{
     text-decoration: none;
     color: #000000;
+}
+
+header a:hover{
+    color: #df3191;
 }
 
 header .carousel img{
@@ -39,6 +43,10 @@ header .carousel img{
 header .active{
     color: #d90368;
     font-weight: bolder;
+}
+
+header .active:hover{
+    color: #d90368;
 }
 
 header .carousel-control-prev-icon, header .carousel-control-next-icon{

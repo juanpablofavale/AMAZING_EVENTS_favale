@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background: linear-gradient(#c9a9a9, #cccccc);
+}
+
 /*  HEADER  */
 
 .logo {

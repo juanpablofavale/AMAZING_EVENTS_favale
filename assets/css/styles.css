@@ -50,8 +50,8 @@ h1{
 }
 
 main .card{
-    box-shadow: 10px 10px 10px #d903674b;
     box-shadow: 10px 10px 10px #0000003d;
+    box-shadow: 10px 10px 10px #af7d94c9;
 }
 
 main .card img{

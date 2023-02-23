@@ -44,7 +44,19 @@ h1{
 }
 
 main .card{
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.678);
+    box-shadow: 10px 10px 10px #d903674b;
+    box-shadow: 10px 10px 10px #0000003d;
+}
+
+main .card .btn{
+    background-color: #d90368;
+    border-color: #88003fb4;
+    box-shadow: inset 0 0 10px #7e003b;
+}
+
+main .card .btn:hover{
+    background-color: #a0004b;
+    border-color: #88003f;
 }
 
 main form{

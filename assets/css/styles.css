@@ -91,12 +91,27 @@ main .img-details{
     border-top: 2px solid white;
 }
 
+main table th{
+    background-color: #d9036727;
+    padding: 5px;
+}
+
+main table{
+    width: 270px;
+    border: 1px solid;
+}
+
+main table td, main table tr{
+    border: 1px solid;
+    height: 30px;
+}
+
 /*  FOOTER  */
 
 footer{
     font-size: 25px;
     padding: 10px;
-    background: linear-gradient(#ff000077, #ff00ff10, #ff000077);
+    background: linear-gradient(#d90368, #ff00ff10, #d90368);
 }
 
 footer ul{

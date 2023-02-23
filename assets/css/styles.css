@@ -71,6 +71,26 @@ main form input{
     width: 100%;
 }
 
+main .img-details{
+    width: 250px;
+}
+
+#details .container{
+    background: linear-gradient(270deg, #ff007791, #7e003b);
+    color: white;
+    border-radius: 5px;
+    border: 2px solid;
+    margin: 5px;
+    width: 270px;
+}
+
+#details .descripcion{
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    border-top: 2px solid white;
+}
+
 /*  FOOTER  */
 
 footer{

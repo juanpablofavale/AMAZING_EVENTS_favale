@@ -217,16 +217,18 @@ a .bi-whatsapp:hover{
     }
     #details .container{
         padding: 0 !important;
-        flex-direction: row !important;
-        width: 70%;
+        width: 60%;
+        min-height: 300px;
     }
     #details figure{
         padding: 20px;
         margin-bottom: 0;
     }
     #details .descripcion{
+        height: 100%;
         border: none;
-        border-left: 2px solid white;
+        border-top: 2px solid white;
+        padding: 30px;
     }
 }
 
@@ -236,5 +238,15 @@ a .bi-whatsapp:hover{
     }
     main table{
         width: 600px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    #details .container{
+        flex-direction: row !important;
+    }
+    #details .descripcion{
+        border: none;
+        border-left: 2px solid white;
     }
 }

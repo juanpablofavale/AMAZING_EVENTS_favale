@@ -11,4 +11,4 @@ function procesarDataPast(object){
     return arr
 }
 
-console.table(procesarDataPast(data))
+renderizarTarjetas(procesarDataPast(data), conTarjetas)

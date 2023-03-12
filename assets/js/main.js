@@ -23,16 +23,3 @@ function renderizarTarjetas(arrTarjetas, contenedor) {
 
     contenedor.innerHTML = tarjetas
 }
-
-const check = document.getElementById("checkbox")
-
-const arrCategorias = data.events.map(evnt => evnt.category)
-const categorias = arrCategorias.filter((cat, indice, arr) => arr.indexOf(cat)==indice)
-const filtros = categorias.reduce((ac, item, indice) => ac + `<label><input onclick="aplicarFiltros()" type="checkbox" name="${item}${indice}" id="${item}${indice}"> ${item}</label>`, "")
-check.innerHTML = filtros
-
-const objCat = {}
-categorias.forEach((cat, index) => {
-    objCat[cat+index]=document.getElementById(cat+index)
-    objCat[cat+index].checked=true
-})

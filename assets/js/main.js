@@ -23,3 +23,14 @@ function renderizarTarjetas(arrTarjetas, contenedor) {
 
     contenedor.innerHTML = tarjetas
 }
+
+function obteneryMostrarCategorias(arr){
+    const arrCategorias = arr.map(evnt => evnt.category)
+    const catUnique = arrCategorias.filter((cat, index, arr) => arr.indexOf(cat)==index)
+    const filtros = catUnique.reduce((ac, item, indice) => ac + `<label><input type="checkbox" name="${item.replace(" ","-")}${indice}" id="${item.replace(" ","-")}${indice}" value="${item}"> ${item}</label>`, "")
+    const check = document.querySelector("#checkbox")
+    check.innerHTML = filtros
+}
+
+const filtrosChk = document.querySelectorAll("input[type=checkbox]")
+console.log(filtrosChk)

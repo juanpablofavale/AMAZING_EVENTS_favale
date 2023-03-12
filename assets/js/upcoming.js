@@ -1,14 +1,12 @@
-function procesarDataUpcoming(object){
-    let arr = []
-    let array = object.events
 
-    for (obj of array){
-        if (object.currentDate<=obj.date){
-            arr.push(obj)
-        }
-    }
-
-    return arr
+function aplicarFiltros(){
+    filtrarUpcoming()
 }
 
-renderizarTarjetas(procesarDataUpcoming(data), conTarjetas)
+function filtrarUpcoming(){
+    const upcomingArr = data.events.filter(evnt => data.currentDate<=evnt.date)
+    const upcomingChecked = upcomingArr.filter((evnt, index) => objCat[evnt.category+index].checked)
+    renderizarTarjetas(upcomingChecked, conTarjetas)
+}
+
+aplicarFiltros()

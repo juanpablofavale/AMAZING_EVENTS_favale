@@ -1,14 +1,11 @@
-function procesarDataPast(object){
-    let arr = []
-    let array = object.events
-
-    for (obj of array){
-        if (object.currentDate>obj.date){
-            arr.push(obj)
-        }
-    }
-
-    return arr
+function aplicarFiltros(){
+    filtrarPast()
 }
 
-renderizarTarjetas(procesarDataPast(data), conTarjetas)
+function filtrarPast(){
+    const pastArr = data.events.filter(obj => data.currentDate>obj.date)
+    const pastChecked = pastArr.filter((evnt, index) => objCat[evnt.category+index].checked)
+    renderizarTarjetas(pastChecked, conTarjetas)
+}
+
+aplicarFiltros()

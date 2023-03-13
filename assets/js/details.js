@@ -11,15 +11,17 @@ const tarjeta = `
         </figure>
     </div>
     <div class="descripcion">
-        <p>Name: ${evento.name}</p>
+        <h4>${evento.name}</h4><br>
         <p>Date: ${evento.date}</p>
-        <p>Description: ${evento.description}</p>
-        <p>Category: ${evento.category}</p>
+        <p>${evento.description}</p>
         <p>Place: ${evento.place}</p>
-        <p>Capacity: ${evento.capacity}</p>
-        <p>Assistance or estimate: ${evento.assistance}</p>
-        <p>Price: ${evento.price}</p>
-    </div>
-</div>
-`
-details.innerHTML = tarjeta
+        <p>Price: $${evento.price}</p>
+        </div>
+        </div>
+        `
+
+//        <p>Category: ${evento.category}</p>
+//        <p>Capacity: ${evento.capacity}</p>
+//        <p>Assistance or estimate: ${evento.assistance}</p>
+
+        details.innerHTML = tarjeta

@@ -1,4 +1,11 @@
 const conTarjetas = document.getElementById("tarjetas")
+const check = document.querySelector("#checkbox")
+const filtrosChk = document.querySelectorAll("input[type=checkbox]")
+let search = document.getElementById("search")
+let datos = data.events
+const arrChecked = []
+let strSearch = ""
+let filtrados = []
 
 function renderizarTarjetas(arrTarjetas, contenedor) {
     let tarjetas = ""
@@ -14,27 +21,67 @@ function renderizarTarjetas(arrTarjetas, contenedor) {
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="precio mb-0">$${tarjeta.price}</p>
-                    <a href="./details.html" class="btn btn-primary">Ver mas</a>
+                    <a href="./details.html?id=${tarjeta._id}" class="btn btn-primary">Ver mas</a>
                 </div>
             </div>
             </div>
             `
     }
 
-    contenedor.innerHTML = tarjetas
+    if(arrTarjetas.length==0){
+        contenedor.innerHTML="<h3>Sin eventos disponibles</h3>"
+    }else{
+        contenedor.innerHTML = tarjetas
+    }
 }
 
-function obteneryMostrarCategorias(arr){
+function obtenerCategorias(arr){
     const arrCategorias = arr.map(evnt => evnt.category)
-    const catUnique = arrCategorias.filter((cat, index, arr) => arr.indexOf(cat)==index)
-    const filtros = catUnique.reduce((ac, item, indice) => ac + `<label><input type="checkbox" name="${item.replace(" ","-")}${indice}" id="${item.replace(" ","-")}${indice}" value="${item}"> ${item}</label>`, "")
-    const check = document.querySelector("#checkbox")
-    check.innerHTML = filtros
+    return arrCategorias.filter((cat, index, arr) => arr.indexOf(cat)==index)
 }
 
-function filtrarPorCheck(arr){
-    filtrosChk.forEach(chk => arr.filter(evnt => evnt.category==chk))
+function mostrarCategorias(arr, contenedor){
+    const filtros = arr.reduce((ac, item, indice) => ac + `<label><input type="checkbox" name="${item.replace(" ","-")}${indice}" id="${item.replace(" ","-")}${indice}" value="${item}"> ${item}</label>`, "")
+    contenedor.innerHTML = filtros
 }
 
-const filtrosChk = document.querySelectorAll("input[type=checkbox]")
-console.log(filtrosChk)
+function filtrarPorCheck(arr, chk){
+    if(chk.length!=0){
+        chk.forEach(filtro => {
+            filtrados = [...arr.filter(evnt => evnt.category==filtro), ...filtrados]
+        })
+    }else{
+        filtrados = datos
+    }
+
+}
+
+function filtrarPorSearch(arr, strSearch){
+    filtrados = arr.filter(evnt => evnt.name.toLowerCase().includes(strSearch.toLowerCase()))
+}
+
+check.addEventListener("click", (e) => {
+    filtrados = []
+    if(e.target.value!=undefined){
+        if(!arrChecked.includes(e.target.value)){
+            arrChecked.push(e.target.value)
+        }else{
+            arrChecked.splice(arrChecked.indexOf(e.target.value), 1)
+        }
+        filtrarPorCheck(datos, arrChecked)
+        filtrarPorSearch(filtrados, strSearch)
+        renderizarTarjetas(filtrados, conTarjetas)
+    }
+})
+
+search.addEventListener("keyup", (e) => {
+    filtrados = []
+    strSearch = search.value
+    if(strSearch==""){
+        filtrarPorCheck(datos, arrChecked)
+    }else{
+        filtrarPorCheck(datos, arrChecked)
+        filtrarPorSearch(filtrados,strSearch)
+    }
+    renderizarTarjetas(filtrados, conTarjetas)
+})

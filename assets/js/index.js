@@ -1,2 +1,3 @@
-renderizarTarjetas(data.events, conTarjetas)
-obteneryMostrarCategorias(data.events)
+renderizarTarjetas(datos, conTarjetas)
+const arrCategorias = obtenerCategorias(data.events)
+mostrarCategorias(arrCategorias, check)

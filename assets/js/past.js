@@ -1,11 +1,4 @@
-function aplicarFiltros(){
-    filtrarPast()
-}
-
-function filtrarPast(){
-    const pastArr = data.events.filter(obj => data.currentDate>obj.date)
-    renderizarTarjetas(pastArr, conTarjetas)
-    obteneryMostrarCategorias(pastArr)
-}
-
-aplicarFiltros()
+datos = data.events.filter(obj => data.currentDate>obj.date)
+renderizarTarjetas(datos, conTarjetas)
+const arrCategorias = obtenerCategorias(data.events)
+mostrarCategorias(arrCategorias, check)

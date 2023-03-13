@@ -32,5 +32,9 @@ function obteneryMostrarCategorias(arr){
     check.innerHTML = filtros
 }
 
+function filtrarPorCheck(arr){
+    filtrosChk.forEach(chk => arr.filter(evnt => evnt.category==chk))
+}
+
 const filtrosChk = document.querySelectorAll("input[type=checkbox]")
 console.log(filtrosChk)

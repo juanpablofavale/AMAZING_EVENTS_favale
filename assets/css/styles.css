@@ -10,6 +10,10 @@ body{
 
 /*  HEADER  */
 
+header{
+    min-height: 25vh;
+}
+
 .logo {
     padding-top: 20px;
     width: 250px;
@@ -56,6 +60,10 @@ header .carousel-control-prev-icon, header .carousel-control-next-icon{
 }
 
 /*  MAIN  */
+
+main{
+    min-height: 69vh;
+}
 
 h1{
     text-align: center;

@@ -2,10 +2,31 @@ const conTarjetas = document.getElementById("tarjetas")
 const check = document.querySelector("#checkbox")
 const filtrosChk = document.querySelectorAll("input[type=checkbox]")
 let search = document.getElementById("search")
-let datos = data.events
+const URLAPI = "https://mindhub-xj03.onrender.com/api/amazing"
+let arrDatos
+let currentDate
 const arrChecked = []
 let strSearch = ""
 let filtrados = []
+
+fetch(URLAPI)
+    .then(res => res.json())
+    .then(data => {
+        arrDatos = data.events
+        currentDate = data.currentDate
+        renderPage()
+    })
+    .catch(err => {
+        console.log(err)
+        fetch("./assets/data/amazing.json")
+            .then(res => res.json())
+            .then(data => {
+                arrDatos = data.events
+                currentDate = data.currentDate
+                renderPage()
+            })
+            .catch(err => console.log(err))
+    })
 
 function renderizarTarjetas(arrTarjetas, contenedor) {
     let tarjetas = ""
@@ -28,47 +49,47 @@ function renderizarTarjetas(arrTarjetas, contenedor) {
             `
     }
 
-    if(arrTarjetas.length==0){
-        contenedor.innerHTML="<h3>Sin eventos disponibles</h3>"
-    }else{
+    if (arrTarjetas.length == 0) {
+        contenedor.innerHTML = "<h3>Sin eventos disponibles</h3>"
+    } else {
         contenedor.innerHTML = tarjetas
     }
 }
 
-function obtenerCategorias(arr){
+function obtenerCategorias(arr) {
     const arrCategorias = arr.map(evnt => evnt.category)
-    return arrCategorias.filter((cat, index, arr) => arr.indexOf(cat)==index)
+    return arrCategorias.filter((cat, index, arr) => arr.indexOf(cat) == index)
 }
 
-function mostrarCategorias(arr, contenedor){
-    const filtros = arr.reduce((ac, item, indice) => ac + `<label><input type="checkbox" name="${item.replace(" ","-")}${indice}" id="${item.replace(" ","-")}${indice}" value="${item}"> ${item}</label>`, "")
+function mostrarCategorias(arr, contenedor) {
+    const filtros = arr.reduce((ac, item, indice) => ac + `<label><input type="checkbox" name="${item.replace(" ", "-")}${indice}" id="${item.replace(" ", "-")}${indice}" value="${item}"> ${item}</label>`, "")
     contenedor.innerHTML = filtros
 }
 
-function filtrarPorCheck(arr, chk){
-    if(chk.length!=0){
+function filtrarPorCheck(arr, chk) {
+    if (chk.length != 0) {
         chk.forEach(filtro => {
-            filtrados = [...arr.filter(evnt => evnt.category==filtro), ...filtrados]
+            filtrados = [...arr.filter(evnt => evnt.category == filtro), ...filtrados]
         })
-    }else{
-        filtrados = datos
+    } else {
+        filtrados = arrDatos
     }
 
 }
 
-function filtrarPorSearch(arr, strSearch){
+function filtrarPorSearch(arr, strSearch) {
     filtrados = arr.filter(evnt => evnt.name.toLowerCase().includes(strSearch.toLowerCase()))
 }
 
 check.addEventListener("click", (e) => {
     filtrados = []
-    if(e.target.value!=undefined){
-        if(!arrChecked.includes(e.target.value)){
+    if (e.target.value != undefined) {
+        if (!arrChecked.includes(e.target.value)) {
             arrChecked.push(e.target.value)
-        }else{
+        } else {
             arrChecked.splice(arrChecked.indexOf(e.target.value), 1)
         }
-        filtrarPorCheck(datos, arrChecked)
+        filtrarPorCheck(arrDatos, arrChecked)
         filtrarPorSearch(filtrados, strSearch)
         renderizarTarjetas(filtrados, conTarjetas)
     }
@@ -77,11 +98,11 @@ check.addEventListener("click", (e) => {
 search.addEventListener("keyup", (e) => {
     filtrados = []
     strSearch = search.value
-    if(strSearch==""){
-        filtrarPorCheck(datos, arrChecked)
-    }else{
-        filtrarPorCheck(datos, arrChecked)
-        filtrarPorSearch(filtrados,strSearch)
+    if (strSearch == "") {
+        filtrarPorCheck(arrDatos, arrChecked)
+    } else {
+        filtrarPorCheck(arrDatos, arrChecked)
+        filtrarPorSearch(filtrados, strSearch)
     }
     renderizarTarjetas(filtrados, conTarjetas)
 })

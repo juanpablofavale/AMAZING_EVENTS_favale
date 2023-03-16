@@ -1,4 +1,6 @@
-datos = data.events.filter(obj => data.currentDate>obj.date)
-renderizarTarjetas(datos, conTarjetas)
-const arrCategorias = obtenerCategorias(data.events)
-mostrarCategorias(arrCategorias, check)
+function renderPage(){
+    datos = arrData.filter(obj => currentDate>obj.date)
+    renderizarTarjetas(datos, conTarjetas)
+    const arrCategorias = obtenerCategorias(arrDatos)
+    mostrarCategorias(arrCategorias, check)
+}

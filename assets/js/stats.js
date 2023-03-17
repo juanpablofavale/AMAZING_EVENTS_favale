@@ -3,10 +3,10 @@ const URLAPI = "https://mindhub-xj03.onrender.com/api/amazing"
 let arrDatos
 let currentDate
 
-obtenerDatos()
 async function obtenerDatos() {
     try {
         const res = await fetch(URLAPI)
+        console.log(res.ok)
         const data = await res.json()
         arrDatos = data.events
         currentDate = data.currentDate
@@ -26,6 +26,7 @@ async function obtenerDatos() {
         renderPage(arrDatos)
     }
 }
+obtenerDatos()
 
 function renderPage(arr) {
     const arrPast = arr.filter(evnt => evnt.date < currentDate)

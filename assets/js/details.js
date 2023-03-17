@@ -7,7 +7,6 @@ fetch(URLAPI)
     .then(data => {
         arrDatos = data.events
         currentDate = data.currentDate
-        renderPage()
     })
     .catch(err => {
         console.log(err)
@@ -16,9 +15,11 @@ fetch(URLAPI)
             .then(data => {
                 arrDatos = data.events
                 currentDate = data.currentDate
-                renderPage()
             })
             .catch(err => console.log(err))
+    })
+    .finally(()=>{
+        renderPage()
     })
 
 function renderPage(){

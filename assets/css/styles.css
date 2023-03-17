@@ -152,6 +152,9 @@ main table td, main table tr{
     height: 30px;
 }
 
+main table tr.items:hover{
+    background-color: #7e003b18;
+}
 /*  FOOTER  */
 
 footer{

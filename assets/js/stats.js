@@ -54,7 +54,7 @@ function crearPrimerTabla(arr) {
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr class="items">
             <td>${mayorE.name} (${mayorE.porc}%)</td>
             <td>${menorE.name} (${menorE.porc}%)</td>
             <td>${mayCap.name} (${mayCap.capacity})</td>
@@ -87,7 +87,7 @@ function crearTablaCategorias(arr, prop){
     for (let i = 0; i<gan.length; i++){
         contenido += 
         `
-        <tr>
+        <tr class="items">
             <td>${categorias[i]}</td>
             <td>U$D ${gan[i]}</td>
             <td>${asis[i]}%</td>

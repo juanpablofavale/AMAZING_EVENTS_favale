@@ -1,5 +1,6 @@
 function renderPage(){
-    renderizarTarjetas(arrDatos, conTarjetas)
+    datos = arrDatos
+    renderizarTarjetas(datos, conTarjetas)
     const arrCategorias = obtenerCategorias(arrDatos)
     mostrarCategorias(arrCategorias, check)
 }

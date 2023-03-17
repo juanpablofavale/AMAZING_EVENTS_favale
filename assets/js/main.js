@@ -4,6 +4,7 @@ const filtrosChk = document.querySelectorAll("input[type=checkbox]")
 let search = document.getElementById("search")
 const URLAPI = "https://mindhub-xj03.onrender.com/api/amazing"
 let arrDatos
+let datos
 let currentDate
 const arrChecked = []
 let strSearch = ""
@@ -89,7 +90,7 @@ check.addEventListener("click", (e) => {
         } else {
             arrChecked.splice(arrChecked.indexOf(e.target.value), 1)
         }
-        filtrarPorCheck(arrDatos, arrChecked)
+        filtrarPorCheck(datos, arrChecked)
         filtrarPorSearch(filtrados, strSearch)
         renderizarTarjetas(filtrados, conTarjetas)
     }
@@ -99,9 +100,9 @@ search.addEventListener("keyup", (e) => {
     filtrados = []
     strSearch = search.value
     if (strSearch == "") {
-        filtrarPorCheck(arrDatos, arrChecked)
+        filtrarPorCheck(datos, arrChecked)
     } else {
-        filtrarPorCheck(arrDatos, arrChecked)
+        filtrarPorCheck(datos, arrChecked)
         filtrarPorSearch(filtrados, strSearch)
     }
     renderizarTarjetas(filtrados, conTarjetas)

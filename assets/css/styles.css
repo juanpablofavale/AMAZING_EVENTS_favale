@@ -136,11 +136,15 @@ main .img-details{
 main table th{
     background-color: #d9036727;
     padding: 5px;
+    border: 1px solid;
 }
 
 main table{
+    margin: 20px;
     width: 270px;
     border: 1px solid;
+    text-align: center;
+    box-shadow: 10px 10px 10px #af7d94c9;
 }
 
 main table td, main table tr{

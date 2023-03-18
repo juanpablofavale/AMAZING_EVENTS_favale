@@ -2,33 +2,9 @@ const conTarjetas = document.getElementById("tarjetas")
 const check = document.querySelector("#checkbox")
 const filtrosChk = document.querySelectorAll("input[type=checkbox]")
 let search = document.getElementById("search")
-const URLAPI = "https://mindhub-xj03.onrender.com/api/amazing"
-let arrDatos
-let datos
-let currentDate
 const arrChecked = []
 let strSearch = ""
 let filtrados = []
-
-fetch(URLAPI)
-    .then(res => res.json())
-    .then(data => {
-        arrDatos = data.events
-        currentDate = data.currentDate
-    })
-    .catch(err => {
-        console.log(err)
-        fetch("./assets/data/amazing.json")
-            .then(res => res.json())
-            .then(data => {
-                arrDatos = data.events
-                currentDate = data.currentDate
-            })
-            .catch(err => console.log(err))
-    })
-    .finally(()=>{
-        renderPage()
-    })
 
 function renderizarTarjetas(arrTarjetas, contenedor) {
     let tarjetas = ""

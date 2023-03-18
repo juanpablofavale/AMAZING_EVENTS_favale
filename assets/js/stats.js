@@ -1,32 +1,4 @@
 const contenedor = document.getElementById("table-container")
-const URLAPI = "https://mindhub-xj03.onrender.com/api/amazing"
-let arrDatos
-let currentDate
-
-async function obtenerDatos() {
-    try {
-        const res = await fetch(URLAPI)
-        console.log(res.ok)
-        const data = await res.json()
-        arrDatos = data.events
-        currentDate = data.currentDate
-    } catch (error) {
-        console.log(error)
-        try {
-            const res = await fetch("./assets/data/amazing.json")
-            const data = await res.json()
-            arrDatos = data.events
-            currentDate = data.currentDate
-        } catch (error) {
-            console.log(error)
-        }finally{
-            renderPage(arrDatos)
-        }
-    }finally{
-        renderPage(arrDatos)
-    }
-}
-obtenerDatos()
 
 function renderPage(arr) {
     const arrPast = arr.filter(evnt => evnt.date < currentDate)
@@ -66,9 +38,9 @@ function crearPrimerTabla(arr) {
     return tabla
 }
 
-function crearTablaCategorias(arr, prop){
+function crearTablaCategorias(arr, prop) {
     categorias = obtenerCategorias(arr)
-    let [gan , asis] = obtGanYAsis(arr, categorias, prop)
+    let [gan, asis] = obtGanYAsis(arr, categorias, prop)
 
     inicio = `
     <table>
@@ -83,42 +55,33 @@ function crearTablaCategorias(arr, prop){
         </tr>
     </thead>
     <tbody>`
-    
+
     contenido = ""
-    for (let i = 0; i<gan.length; i++){
-        contenido += 
-        `
+    for (let i = 0; i < gan.length; i++) {
+        contenido +=
+            `
         <tr class="items">
             <td>${categorias[i]}</td>
-            <td>U$D ${gan[i]}</td>
+            <td>$${gan[i]}</td>
             <td>${asis[i]}%</td>
         </tr>
         `
     }
-    /*
-    `
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    `
-    */
 
     final =
-    `
+        `
     </tbody>
     </table>
         `
     return inicio + contenido + final
 }
 
-function obtenerCategorias(arr){
+function obtenerCategorias(arr) {
     const cate = arr.map(evnt => evnt.category)
-    return cate.filter((cat, index, arr) => arr.indexOf(cat)==index)
+    return cate.filter((cat, index, arr) => arr.indexOf(cat) == index)
 }
 
-function obtGanYAsis(arr, categorias, prop){
+function obtGanYAsis(arr, categorias, prop) {
     let revenue = []
     let asis = []
     categorias.forEach(categoria => {

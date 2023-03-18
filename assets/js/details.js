@@ -1,27 +1,3 @@
-const URLAPI = "https://mindhub-xj03.onrender.com/api/amazing"
-let arrDatos
-let currentDate
-
-fetch(URLAPI)
-    .then(res => res.json())
-    .then(data => {
-        arrDatos = data.events
-        currentDate = data.currentDate
-    })
-    .catch(err => {
-        console.log(err)
-        fetch("./assets/data/amazing.json")
-            .then(res => res.json())
-            .then(data => {
-                arrDatos = data.events
-                currentDate = data.currentDate
-            })
-            .catch(err => console.log(err))
-    })
-    .finally(()=>{
-        renderPage()
-    })
-
 function renderPage(){
     const details = document.getElementById("details")
     const search = location.search
@@ -44,10 +20,5 @@ function renderPage(){
         </div>
     </div>
     `
-
-    //        <p>Category: ${evento.category}</p>
-    //        <p>Capacity: ${evento.capacity}</p>
-    //        <p>Assistance or estimate: ${evento.assistance}</p>
-
     details.innerHTML = tarjeta
 }

@@ -28,7 +28,7 @@ function renderizarTarjetas(arrTarjetas, contenedor) {
     }
 
     if (arrTarjetas.length == 0) {
-        contenedor.innerHTML = "<h3>Sin eventos disponibles</h3>"
+        contenedor.innerHTML = "<h3>Events not found!</h3>"
     } else {
         contenedor.innerHTML = tarjetas
     }

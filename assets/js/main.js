@@ -20,7 +20,7 @@ function renderizarTarjetas(arrTarjetas, contenedor) {
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="precio mb-0">$${tarjeta.price}</p>
-                    <a href="./details.html?id=${tarjeta._id}" class="btn btn-primary">Ver mas</a>
+                    <a href="./details.html?id=${tarjeta._id}" class="btn btn-primary">Details</a>
                 </div>
             </div>
             </div>

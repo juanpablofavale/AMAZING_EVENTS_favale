@@ -12,7 +12,7 @@ function renderPage(){
             </figure>
         </div>
         <div class="descripcion">
-            <h4>${evento.name}</h4><br>
+            <h4>${evento.name}</h4>
             <p>Date: ${evento.date}</p>
             <p>${evento.description}</p>
             <p>Place: ${evento.place}</p>
